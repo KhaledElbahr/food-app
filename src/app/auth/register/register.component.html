@@ -1,0 +1,178 @@
+<form
+  (ngSubmit)="onSubmit(registerionForm.value)"
+  class="card md:col-6 mx-auto m-4 border-solid border-blue-50 p-8"
+  [formGroup]="registerionForm"
+>
+  <div class="formgrid grid">
+    <div class="field col-12 md:col-6">
+      <div class="p-float-label mb-3">
+        <input
+          [style]="{ width: '100%' }"
+          id="float-input"
+          type="text"
+          pInputText
+          formControlName="fName"
+        />
+        <label for="float-input">First name</label>
+      </div>
+
+      <div
+        class="ml-2"
+        *ngIf="
+          !registerionForm.controls['fName'].valid &&
+          registerionForm.controls['fName'].touched
+        "
+      >
+        <p
+          class="text-red-400"
+          *ngIf="registerionForm.controls['fName'].errors?.['required']"
+        >
+          First Name is a required field!
+        </p>
+      </div>
+    </div>
+
+    <!-- ******************************************************** -->
+
+    <div class="field col-12 md:col-6">
+      <div class="p-float-label mb-3">
+        <input
+          [style]="{ width: '100%' }"
+          id="float-input"
+          type="text"
+          pInputText
+          formControlName="lName"
+        />
+        <label for="float-input">Last name</label>
+      </div>
+      <div
+        class="ml-2"
+        *ngIf="
+          !registerionForm.controls['lName'].valid &&
+          registerionForm.controls['lName'].touched
+        "
+      >
+        <p
+          class="text-red-400"
+          *ngIf="registerionForm.controls['lName'].errors?.['required']"
+        >
+          Last Name is a required field!
+        </p>
+      </div>
+    </div>
+
+    <div class="field col-12">
+      <div class="p-float-label mb-3">
+        <input
+          [style]="{ width: '100%' }"
+          id="float-input"
+          type="text"
+          pInputText
+          formControlName="email"
+        />
+        <label for="float-input">Email</label>
+      </div>
+
+      <div
+        class="ml-2"
+        *ngIf="
+          !registerionForm.controls['email'].valid &&
+          registerionForm.controls['email'].touched
+        "
+      >
+        <p
+          class="text-red-400"
+          *ngIf="registerionForm.controls['email'].errors?.['required']"
+        >
+          Email is a required field!
+        </p>
+
+        <p
+          class="text-red-400"
+          *ngIf="registerionForm.controls['email'].errors?.['pattern']"
+        >
+          This is not a valid Email!!!
+        </p>
+      </div>
+      <!-- ///////////////////////////////////////////////////////////////// -->
+    </div>
+    <div class="field col-12">
+      <div class="p-float-label mb-3">
+        <input
+          [style]="{ width: '100%' }"
+          id="float-input"
+          type="password"
+          pInputText
+          formControlName="password"
+        />
+        <label for="float-input">Password</label>
+      </div>
+      <div
+        class="ml-2"
+        *ngIf="
+          !registerionForm.controls['password'].valid &&
+          registerionForm.controls['password'].touched
+        "
+      >
+        <p
+          class="text-red-400"
+          *ngIf="registerionForm.controls['password'].errors?.['required']"
+        >
+          password is a required field!
+        </p>
+
+        <p
+          class="text-red-400"
+          *ngIf="registerionForm.controls['password'].errors?.['pattern']"
+        >
+          Minimum eight characters, at least one letter and one number
+        </p>
+      </div>
+    </div>
+    <!-- /////////////////////////////////////////////////////////////////// -->
+
+    <div class="field col-12">
+      <div class="p-float-label mb-3">
+        <input
+          [style]="{ width: '100%' }"
+          id="float-input"
+          type="password"
+          pInputText
+          formControlName="confirmPassword"
+        />
+        <label for="float-input">Confirm password</label>
+      </div>
+      <div
+        [hidden]="
+          registerionForm.get('password')?.untouched ||
+          registerionForm.get('confirmPassword')?.untouched
+        "
+      >
+        <p
+          class="text-red-400"
+          *ngIf="registerionForm.controls['confirmPassword'].errors?.['required']"
+        >
+          Confirm password is a required field!
+        </p>
+
+        <p
+          class="text-red-400"
+          *ngIf="registerionForm?.errors?.['unMatchedPassword']"
+        >
+          Confirm password should match password!
+        </p>
+      </div>
+    </div>
+    <button
+      ng-disabled="registerionForm.invalid"
+      type="submit"
+      class="mx-auto text-white bg-primary-500 border-primary-500 mt-7 px-3 py-2 text-base border-1 border-solid border-round cursor-pointer transition-all transition-duration-200 hover:bg-primary-600 hover:border-primary-600 active:bg-primary-700 active:border-primary-700"
+    >
+      register
+    </button>
+  </div>
+  <p>Already have account <a routerLink="/auth/login">Login</a></p>
+</form>
+<router-outlet></router-outlet>
+
+<!-- //////////////////////////////////////////////////////////////// -->

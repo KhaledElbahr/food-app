@@ -8,6 +8,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 // Modules
 import { CoreModule } from './core/core.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CoreModule } from './core/core.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
+    AuthModule,
     // ServiceWorkerModule.register('ngsw-worker.js', {
     //   enabled: environment.production,
     //   // Register the ServiceWorker as soon as the application is stable
