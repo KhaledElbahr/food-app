@@ -1,7 +1,8 @@
-<div class="p-grid">
-  <app-recipe-item class="p-col" *ngFor="let recipe of recipeList"></app-recipe-item>
+<h2 class="text-center mt-7 text-5xl text-blue-900">Salad Recipes</h2>
+<div class="grid py-5">
+  <app-recipe-item
+    class="col-12 md:col-6 lg:col-4 xl:col-3"
+    [recipe]="recipeList[i]"
+    *ngFor="let recipe of recipeList; let i = index"
+  ></app-recipe-item>
 </div>
-
-
-
-

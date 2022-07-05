@@ -10,6 +10,7 @@ import { environment } from '../environments/environment';
 import { CoreModule } from './core/core.module';
 import { RecipesModule } from './recipes/recipes.module';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -19,7 +20,7 @@ import { RecipesModule } from './recipes/recipes.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
-    RecipesModule,
+    RecipesModule
     // ServiceWorkerModule.register('ngsw-worker.js', {
     //   enabled: environment.production,
     //   // Register the ServiceWorker as soon as the application is stable

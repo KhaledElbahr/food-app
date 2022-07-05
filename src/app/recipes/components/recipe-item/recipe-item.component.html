@@ -1,25 +1,35 @@
-<p-card header="Advanced Card" subheader="Card Subheader" styleClass="p-card-shadow">
+<p-card styleClass="p-card-shadow">
+  <ng-template pTemplate="header">
+    <div class="h-15rem">
+      <img alt="Card" [style]="{ height: '100%' }" [src]="recipe.image_url" />
+    </div>
+  </ng-template>
+  <div class="h-10rem">
+    <h2>{{ recipe.title }}</h2>
+    <p class="text-500">
+      Publisher :
+      <a
+        [href]="recipe.publisher_url"
+        class="p-text-secondary no-underline"
+        target="_blank"
+        >{{ recipe.publisher }}</a
+      >
+    </p>
+  </div>
 
-    <ng-template pTemplate="header">
-
-      <img alt="Card" [style]="{maxWidth: '100%'}" src="../../../../assets/icons/icon-72x72.png">
-
-    </ng-template>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam
-
-      deserunt
-
-      quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
-
-    <ng-template pTemplate="footer">
-
-      <p-button label="Save" icon="pi pi-check"></p-button>
-
-      <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-danger" [style]="{'margin-left': '.5em'}">
-
-      </p-button>
-
-    </ng-template>
-
-  </p-card>
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      type="button"
+      label="Details"
+      class="mr-6 lg:mr-3 xl:mr-4"
+      style="width: 50%"
+    ></button>
+    <button
+      pButton
+      type="button"
+      icon="pi pi-heart"
+      class="p-button-text p-button-danger p-4 ml-6 p-button-rounded"
+    ></button>
+  </ng-template>
+</p-card>
