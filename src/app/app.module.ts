@@ -10,8 +10,10 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 // Modules
 import { CoreModule } from './core/core.module';
+import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
 import { RecipesModule } from './recipes/recipes.module';
+
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { RecipesModule } from './recipes/recipes.module';
     BrowserAnimationsModule,
     HttpClientModule,
     CoreModule,
+    AuthModule,
     SharedModule,
     RecipesModule
     // ServiceWorkerModule.register('ngsw-worker.js', {
