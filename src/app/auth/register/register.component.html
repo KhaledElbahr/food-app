@@ -5,10 +5,10 @@
 >
   <div class="formgrid grid">
     <div class="field col-12 md:col-6">
-      <div class="p-float-label mb-3">
+      <div class="p-float-label mb-4">
         <input
           [style]="{ width: '100%' }"
-          id="float-input"
+          id="fName"
           type="text"
           pInputText
           formControlName="fName"
@@ -31,14 +31,11 @@
         </p>
       </div>
     </div>
-
-    <!-- ******************************************************** -->
-
     <div class="field col-12 md:col-6">
-      <div class="p-float-label mb-3">
+      <div class="p-float-label mb-4">
         <input
           [style]="{ width: '100%' }"
-          id="float-input"
+          id="lName"
           type="text"
           pInputText
           formControlName="lName"
@@ -62,10 +59,10 @@
     </div>
 
     <div class="field col-12">
-      <div class="p-float-label mb-3">
+      <div class="p-float-label mb-4 mt-3">
         <input
           [style]="{ width: '100%' }"
-          id="float-input"
+          id="email"
           type="text"
           pInputText
           formControlName="email"
@@ -94,13 +91,12 @@
           This is not a valid Email!!!
         </p>
       </div>
-      <!-- ///////////////////////////////////////////////////////////////// -->
     </div>
     <div class="field col-12">
-      <div class="p-float-label mb-3">
+      <div class="p-float-label mb-4 mt-3">
         <input
           [style]="{ width: '100%' }"
-          id="float-input"
+          id="password"
           type="password"
           pInputText
           formControlName="password"
@@ -129,13 +125,11 @@
         </p>
       </div>
     </div>
-    <!-- /////////////////////////////////////////////////////////////////// -->
-
     <div class="field col-12">
-      <div class="p-float-label mb-3">
+      <div class="p-float-label mb-4 mt-3">
         <input
           [style]="{ width: '100%' }"
-          id="float-input"
+          id="confirmPassword"
           type="password"
           pInputText
           formControlName="confirmPassword"
@@ -143,9 +137,9 @@
         <label for="float-input">Confirm password</label>
       </div>
       <div
-        [hidden]="
-          registerionForm.get('password')?.untouched ||
-          registerionForm.get('confirmPassword')?.untouched
+        *ngIf="
+          registerionForm.get('password')?.touched ||
+          registerionForm.get('confirmPassword')?.touched
         "
       >
         <p
@@ -174,5 +168,3 @@
   <p>Already have account <a routerLink="/auth/login">Login</a></p>
 </form>
 <router-outlet></router-outlet>
-
-<!-- //////////////////////////////////////////////////////////////// -->

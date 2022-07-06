@@ -39,11 +39,14 @@ export class RegisterComponent implements OnInit {
     );
   }
   onSubmit(val: any): void {
-    if (this.registerionForm.valid) {
+    if (
+      this.registerionForm.valid &&
+      this.registerionForm.get('fName')?.value.trim() !== '' &&
+      this.registerionForm.get('lName')?.value.trim() !== ''
+    ) {
       console.log(val);
       this.registerionForm.reset();
     }
   }
-
   ngOnInit(): void {}
 }
