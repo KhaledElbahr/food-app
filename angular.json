@@ -2,6 +2,7 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
     "analytics": "37e245ca-05c6-4787-b913-d78bb0433511"
+    "analytics": "2168d2f9-8b03-4aa9-8fa0-272a29f76127"
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -36,11 +37,11 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              "src/styles.scss",
               "node_modules/primeflex/primeflex.min.css",
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeng/resources/themes/saga-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
+              "src/styles.scss"
             ],
             "scripts": [],
             "serviceWorker": true,
