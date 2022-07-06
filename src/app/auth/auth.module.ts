@@ -13,6 +13,12 @@ import { PasswordModule } from 'primeng/password';
   declarations: [
     LoginComponent
   ],
+import { RegisterComponent } from './register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
+
+@NgModule({
+  declarations: [RegisterComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
@@ -23,5 +29,8 @@ import { PasswordModule } from 'primeng/password';
     PasswordModule,
 
   ]
+    InputTextModule,
+  ],
+  exports: [RegisterComponent],
 })
-export class AuthModule { }
+export class AuthModule {}
