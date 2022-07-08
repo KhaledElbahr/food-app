@@ -8,15 +8,7 @@ import { RecipesService } from 'src/app/shared/services/recipes.service';
   styleUrls: ['./recipe-details.component.scss'],
 })
 export class RecipeDetailsComponent implements OnInit {
-  recipe: Recipe = {
-    publisher: '',
-    title: '',
-    source_url: '',
-    recipe_id: '',
-    image_url: '',
-    social_rank: 0,
-    publisher_url: '',
-  };
+  recipe ?: Recipe ;
   id: string = '47746';
   constructor(private recipeService: RecipesService) {}
 
