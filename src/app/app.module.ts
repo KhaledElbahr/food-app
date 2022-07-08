@@ -13,6 +13,9 @@ import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
 import { RecipesModule } from './recipes/recipes.module';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { RecipesModule } from './recipes/recipes.module';
     CoreModule,
     AuthModule,
     SharedModule,
-    RecipesModule
+    RecipesModule,
+    StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
     // ServiceWorkerModule.register('ngsw-worker.js', {
     //   enabled: environment.production,
     //   // Register the ServiceWorker as soon as the application is stable

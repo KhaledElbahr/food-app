@@ -11,10 +11,16 @@ import {MenuItem} from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
 import { TagModule } from 'primeng/tag';
 import {CardModule} from 'primeng/card';
+import { FooterComponent } from './footer/footer.component';
+import {TabMenuModule} from 'primeng/tabmenu';
+
 
 @NgModule({
   declarations: [
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent,
+  
+
   ],
   imports: [
     CommonModule,
@@ -25,9 +31,11 @@ import {CardModule} from 'primeng/card';
     InputTextModule,
     TagModule,
     CardModule,
+    TabMenuModule,
   ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ]
 })
 export class CoreModule { }
