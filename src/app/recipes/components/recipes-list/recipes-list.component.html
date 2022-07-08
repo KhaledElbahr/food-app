@@ -1,8 +1,19 @@
-<h2 class="text-center mt-7 text-5xl text-blue-900">{{ category }} Recipes</h2>
-<div class="grid py-5">
-  <app-recipe-item
-    class="col-12 md:col-6 lg:col-4"
-    [recipe]="recipeList[i]"
-    *ngFor="let recipe of recipeList; let i = index"
-  ></app-recipe-item>
+<div
+  *ngIf="waitingFlag"
+  style="height: 100vh"
+  class="flex justify-content-center align-items-center"
+>
+  <p-progressSpinner ></p-progressSpinner>
 </div>
+<ng-container *ngIf="!waitingFlag">
+  <h2 class="text-center mt-7 text-5xl text-blue-900">
+    {{ category }} Recipes
+  </h2>
+  <div class="grid py-5">
+    <app-recipe-item
+      class="col-12 md:col-6 lg:col-4"
+      [recipe]="recipeList[i]"
+      *ngFor="let recipe of recipeList; let i = index"
+    ></app-recipe-item>
+  </div>
+</ng-container>
