@@ -1,0 +1,24 @@
+.ingradient-list li::before {
+  content: "";
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-image: url("../../../../assets/icons/images.png");
+  background-size: cover;
+  position: absolute;
+  top: -5%;
+  right: 101%;
+}
+.details-btn {
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.details-btn:hover {
+  color: white !important;
+  background-color: #616161 !important;
+}
+.owner-link:hover {
+  color: #1e4620 !important;
+}

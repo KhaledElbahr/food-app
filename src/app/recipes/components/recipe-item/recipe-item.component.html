@@ -1,0 +1,35 @@
+<p-card styleClass="p-card-shadow">
+  <ng-template pTemplate="header">
+    <div class="h-15rem">
+      <img alt="Card" [style]="{ height: '100%' }" [src]="recipe.image_url" />
+    </div>
+  </ng-template>
+  <div class="h-10rem">
+    <h2>{{ recipe.title }}</h2>
+    <p class="text-500">
+      Publisher :
+      <a
+        [href]="recipe.publisher_url"
+        class="p-text-secondary no-underline"
+        target="_blank"
+        >{{ recipe.publisher }}</a
+      >
+    </p>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      type="button"
+      label="Details"
+      class="mr-6 lg:mr-3 xl:mr-4"
+      style="width: 50%"
+    ></button>
+    <button
+      pButton
+      type="button"
+      icon="pi pi-heart"
+      class="p-button-text p-button-danger p-4 ml-6 p-button-rounded"
+    ></button>
+  </ng-template>
+</p-card>

@@ -1,0 +1,44 @@
+<form class="card md:col-6 mx-auto m-4 border-solid border-blue-50 p-8" [formGroup]="login" (ngSubmit)="onSubmit()">
+
+    <div class="formgrid grid">
+
+        <div class="field col-12">
+            <div class="p-float-label mb-4 mt-3">
+
+
+                <input id="username" type="text" pInputText formControlName="username" [style]="{ width: '100%' }"
+                    required />
+                <label for="float-input">User name</label>
+            </div>
+            <div class="ml-2"
+                *ngIf="!loginForm['username'].valid && loginForm['username'].touched || loginForm['username'].dirty">
+
+                <p class="text-red-400" *ngIf="loginForm['username'].errors?.['required']">Username field is required
+                </p>
+            </div>
+        </div>
+
+        <div class="field col-12">
+            <div class="p-float-label mb-4 mt-3">
+
+                <input id="password" type="password" pInputText formControlName="password" [style]="{ width: '100%' }"
+                    required />
+                <label for="float-input">Password</label>
+                <div class="ml-2"
+                    *ngIf="!loginForm['password'].valid && loginForm['password'].touched || loginForm['password'].dirty">
+
+                    <p class="text-red-400" *ngIf="loginForm['password'].errors?.['required']"> password is a required
+                        field!</p>
+                    <p class="text-red-400" *ngIf="loginForm['password'].errors?.['pattern']"> Minimum eight characters,
+                        at least one letter
+                        and one number</p>
+                </div>
+            </div>
+        </div>
+        <button pButton pRipple label="Sign In" type="submit"
+            class="mx-auto text-white bg-primary-500 border-primary-500 px-3 py-2 text-base border-1 border-solid border-round cursor-pointer transition-all transition-duration-200 hover:bg-primary-600 hover:border-primary-600 active:bg-primary-700 active:border-primary-700"
+            [disabled]="clicked || !login.valid ">Sign In</button>
+
+    </div>
+    <p>Do not have an account <a routerLink="/auth/register">Register</a></p>
+</form>
