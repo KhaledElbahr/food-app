@@ -16,7 +16,6 @@
       >
     </p>
   </div>
-
   <ng-template pTemplate="footer">
     <button
       pButton
@@ -26,11 +25,24 @@
       style="width: 50%"
       (click)="openRecipeDetails(recipe.recipe_id)"
     ></button>
-    <button
-      pButton
-      type="button"
-      icon="pi pi-heart"
-      class="p-button-text p-button-danger p-4 ml-6 p-button-rounded"
-    ></button>
+    <div *ngIf="isLiked; then liked; else isNotLiked"></div>
+    <ng-template #liked>
+      <button
+        pButton
+        type="button"
+        icon="pi pi-heart-fill"
+        class="p-button-text p-button-danger p-4 ml-6 p-button-rounded"
+        (click)="addToFavlist(recipe)"
+      ></button>
+    </ng-template>
+    <ng-template #isNotLiked>
+      <button
+        pButton
+        type="button"
+        icon="pi pi-heart"
+        class="p-button-text p-button-danger p-4 ml-6 p-button-rounded"
+        (click)="addToFavlist(recipe)"
+      ></button>
+    </ng-template>
   </ng-template>
 </p-card>

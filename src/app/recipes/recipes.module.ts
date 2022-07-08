@@ -14,14 +14,15 @@ import { InputTextModule } from 'primeng/inputtext';
 import { TagModule } from 'primeng/tag';
 import {CardModule} from 'primeng/card';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
-
+import { FavRecipesComponent } from './components/fav-recipes/fav-recipes.component';
 
 @NgModule({
   declarations: [
     TopRankedComponent,
     RecipesListComponent,
     RecipeDetailsComponent,
-    RecipeItemComponent
+    RecipeItemComponent,
+    FavRecipesComponent,
   ],
   imports: [
     CommonModule,
@@ -38,7 +39,8 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
     TopRankedComponent,
     RecipesListComponent,
     RecipeDetailsComponent,
-    RecipeItemComponent
-  ]
+    RecipeItemComponent,
+    FavRecipesComponent,
+  ],
 })
-export class RecipesModule { }
+export class RecipesModule {}
