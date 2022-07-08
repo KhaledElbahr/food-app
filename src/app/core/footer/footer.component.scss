@@ -1,0 +1,8 @@
+
+$main-color : #2196F3;
+$white-color :#fff;
+.footer{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+a{text-decoration: none;}
+.footer_links a:hover{ color: $main-color!important;}
+.footer_social a i{background-color: $main-color; color: $white-color !important;}
+.cpy_rigth{background-color: $main-color;}

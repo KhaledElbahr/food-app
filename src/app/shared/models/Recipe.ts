@@ -1,6 +1,6 @@
 export interface Recipe {
   publisher: string;
-  ingredients?: [];
+  ingredients?: string[];
   title: string;
   source_url: string;
   recipe_id: string;
@@ -9,3 +9,11 @@ export interface Recipe {
   publisher_url: string;
 }
 
+export interface SingleRecipe {
+  recipe: Recipe;
+}
+
+export interface RecipeList {
+  count: number;
+  recipes: Recipe[];
+}
