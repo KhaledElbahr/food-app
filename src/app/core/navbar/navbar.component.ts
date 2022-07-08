@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit {
             "label": "Pizza",
             "icon": "",
             "routerLink": "recipes/pizza"
-            
+
           },
           {
             "label": "Salad",

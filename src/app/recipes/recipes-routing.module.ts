@@ -5,15 +5,13 @@ import { RecipeDetailsComponent } from './components/recipe-details/recipe-detai
 import { TopRankedComponent } from './components/top-ranked/top-ranked.component';
 
 const routes: Routes = [
-    { path: 'beef',  component: RecipesListComponent },
-    { path: 'salad', component: RecipesListComponent },
-    { path: 'pizza', component: RecipesListComponent },
-    { path: 'recipe/:id', component: RecipeDetailsComponent },
-    { path: 'recipes/top-rank', component: TopRankedComponent },
+  { path: 'recipes/:category', component: RecipesListComponent },
+  { path: 'recipe/:id', component: RecipeDetailsComponent },
+  { path: 'recipes/top-rank', component: TopRankedComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class RecipesRoutingModule { }
+export class RecipesRoutingModule {}
