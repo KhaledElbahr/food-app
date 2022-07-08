@@ -8,24 +8,22 @@
   </figure>
   <div class="col-12 md:col-6 md:pl-7 text-center md:text-left">
     <h2 class="text-3xl text-blue-800 mb-5 mt-0">{{ recipe.title }}</h2>
-
     <p class="text-teal-500 text-xl font-bold my-1">Ingredients :</p>
     <ul class="ingradient-list list-none">
       <li
-        *ngFor="let item of recipe.ingredients"
+        *ngFor="let ingredient of recipe.ingredients"
         class="my-3 line-height-3 relative"
       >
-        {{ item }}
+        {{ ingredient }}
       </li>
     </ul>
-
-      <a
-        class=" text-gray-700 inline-block mb-2 text-xl text-green-700 mt-5 "
-        target="_blank"
-        [href]="recipe.source_url"
-        >To see how to make it easily </a
-      >
-
+    <a
+      class="text-gray-700 inline-block mb-2 text-xl text-green-700 mt-5"
+      [href]="recipe.source_url"
+      target="_blank"
+      no-referrer
+      >To see how to make it easily</a
+    >
     <p class="my-2 text-xl text-green-700">
       Recipe Owner :
       <a

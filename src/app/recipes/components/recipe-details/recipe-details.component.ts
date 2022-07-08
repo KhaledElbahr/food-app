@@ -8,15 +8,13 @@ import { RecipesService } from 'src/app/shared/services/recipes.service';
   styleUrls: ['./recipe-details.component.scss'],
 })
 export class RecipeDetailsComponent implements OnInit {
-  recipe ?: Recipe ;
+  recipe!: Recipe;
   id: string = '47746';
-  constructor(private recipeService: RecipesService) {}
+  constructor(private recipeService: RecipesService) { }
 
   ngOnInit(): void {
     this.recipeService.getRecipe(this.id).subscribe(
-      (data) => {
-        this.recipe = data.recipe;
-      },
+      (data) => this.recipe = data.recipe,
       (err) => console.log(err)
     );
   }
