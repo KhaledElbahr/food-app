@@ -10,17 +10,19 @@ import { RecipeItemComponent } from './components/recipe-item/recipe-item.compon
 import {ButtonModule} from 'primeng/button';
 import {RippleModule} from 'primeng/ripple';
 import {MenubarModule} from 'primeng/menubar';
-import {MenuItem} from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
 import { TagModule } from 'primeng/tag';
 import {CardModule} from 'primeng/card';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { FavRecipesComponent } from './components/fav-recipes/fav-recipes.component';
 
 @NgModule({
   declarations: [
     TopRankedComponent,
     RecipesListComponent,
     RecipeDetailsComponent,
-    RecipeItemComponent
+    RecipeItemComponent,
+    FavRecipesComponent,
   ],
   imports: [
     CommonModule,
@@ -31,12 +33,14 @@ import {CardModule} from 'primeng/card';
     InputTextModule,
     TagModule,
     CardModule,
+    ProgressSpinnerModule
   ],
   exports: [
     TopRankedComponent,
     RecipesListComponent,
     RecipeDetailsComponent,
-    RecipeItemComponent
-  ]
+    RecipeItemComponent,
+    FavRecipesComponent,
+  ],
 })
-export class RecipesModule { }
+export class RecipesModule {}
