@@ -1,8 +1,15 @@
 <p-menubar [model]="items">
   <ng-template pTemplate="start">
-    <h2 [routerLink]="['/recipes/top-rank']" style="cursor: pointer">Food App</h2>
+    <h2 [routerLink]="['/top-rank']" style="cursor: pointer">Food App</h2>
   </ng-template>
   <ng-template pTemplate="end">
+    <button
+    pButton
+    type="button"
+    icon="pi pi-heart text-3xl mt-2"
+    class="p-button-text mx-4"
+    [routerLink]="['fav-recipes']"
+  ></button>
     <i *ngIf="!isLoggedIn; else logout">
       <p-button label="Register" [routerLink]="['/auth/register']"></p-button>
       <p-button

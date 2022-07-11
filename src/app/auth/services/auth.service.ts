@@ -24,7 +24,7 @@ export class AuthService {
   isAuthenticated() {
     const promise = new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(this.userName);
+        resolve(this.loggedIn);
       }, 200);
     });
     return promise;
@@ -57,7 +57,7 @@ export class AuthService {
       this.isAuthenticated();
     } else {
       this.setLoginData.logged = this.loggedIn;
-      this.setLoginData.message = 'Invalid Data!! Try again with correct data';
+      this.setLoginData.message = 'Not authorized!! You don\'t have access';
     };
     return this.setLoginData;
   }

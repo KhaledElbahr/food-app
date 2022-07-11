@@ -34,12 +34,14 @@ export class LoginComponent {
       const formValue = this.loginForm.value;
       this.clicked = true;
       let loginCheck = this.authService.login(formValue);
+      this.loginForm.reset();
       if (loginCheck.logged) {
+        console.log(loginCheck.message);
         this.router.navigate(['']);
       } else {
+        this.router.navigate(['/login']);
         console.log(loginCheck.message);
       }
-      console.log("data", formValue)
     }
   }
 

@@ -37,8 +37,7 @@
         </div>
         <button pButton pRipple label="Sign In" type="submit"
             class="mx-auto text-white bg-primary-500 border-primary-500 px-3 py-2 text-base border-1 border-solid border-round cursor-pointer transition-all transition-duration-200 hover:bg-primary-600 hover:border-primary-600 active:bg-primary-700 active:border-primary-700"
-            [disabled]="clicked || !loginForm.valid ">Sign In</button>
-
+            [disabled]="!loginForm.valid ">Sign In</button>
     </div>
     <p>Do not have an account <a routerLink="/auth/register">Register</a></p>
 </form>
