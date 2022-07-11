@@ -7,14 +7,15 @@ import { RecipesListComponent } from './components/recipes-list/recipes-list.com
 import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
 import { RecipeItemComponent } from './components/recipe-item/recipe-item.component';
 // NGPrime
-import {ButtonModule} from 'primeng/button';
-import {RippleModule} from 'primeng/ripple';
-import {MenubarModule} from 'primeng/menubar';
+import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
+import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
 import { TagModule } from 'primeng/tag';
-import {CardModule} from 'primeng/card';
-import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { CardModule } from 'primeng/card';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { FavRecipesComponent } from './components/fav-recipes/fav-recipes.component';
+import { SearchPipe } from '../shared/pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FavRecipesComponent } from './components/fav-recipes/fav-recipes.compon
     RecipeDetailsComponent,
     RecipeItemComponent,
     FavRecipesComponent,
+    SearchPipe,
   ],
   imports: [
     CommonModule,
@@ -43,4 +45,4 @@ import { FavRecipesComponent } from './components/fav-recipes/fav-recipes.compon
     FavRecipesComponent,
   ],
 })
-export class RecipesModule {}
+export class RecipesModule { }

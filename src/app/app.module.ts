@@ -16,6 +16,7 @@ import { SharedModule } from './shared/shared.module';
 import { RecipesModule } from './recipes/recipes.module';
 import { StoreModule } from '@ngrx/store';
 import { favlistReducer } from './recipes/store/recipe.reducer';
+import { SearchService } from './shared/services/search.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -41,7 +42,7 @@ import { favlistReducer } from './recipes/store/recipe.reducer';
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true
-  }],
+  }, SearchService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
