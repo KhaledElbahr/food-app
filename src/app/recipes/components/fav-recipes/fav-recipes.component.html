@@ -1,11 +1,8 @@
 <h2 class="text-center mt-7 text-5xl text-blue-900">Favorite Recipes</h2>
 
 <div class="grid py-5" *ngIf="favlist.length > 0; else empty">
-  <p-card
-    styleClass="p-card-shadow"
-    class="col-12 md:col-6 lg:col-4 xl:col-3"
-    *ngFor="let recipe of favlist; let i = index"
-  >
+  <p-card styleClass="p-card-shadow" class="col-12 md:col-6 lg:col-4 xl:col-3"
+    *ngFor="let recipe of favlist | search: searchText; let i = index">
     <ng-template pTemplate="header">
       <div class="h-15rem">
         <img alt="Card" [style]="{ height: '100%' }" [src]="recipe.image_url" />
@@ -15,40 +12,20 @@
       <h2>{{ recipe.title }}</h2>
       <p class="text-500">
         Publisher :
-        <a
-          [href]="recipe.publisher_url"
-          class="p-text-secondary no-underline"
-          target="_blank"
-          >{{ recipe.publisher }}</a
-        >
+        <a [href]="recipe.publisher_url" class="p-text-secondary no-underline" target="_blank">{{ recipe.publisher
+          }}</a>
       </p>
     </div>
     <ng-template pTemplate="footer">
-      <button
-        pButton
-        type="button"
-        label="Remove"
-        class="mr-6 lg:mr-3 xl:mr-4"
-        style="width: 50%"
-        (click)="removeFromFavlist(recipe.recipe_id)"
-      ></button>
+      <button pButton type="button" label="Remove" class="mr-6 lg:mr-3 xl:mr-4" style="width: 50%"
+        (click)="removeFromFavlist(recipe.recipe_id)"></button>
       <i *ngIf="isLiked; else isNotLiked">
-        <button
-          (click)="Liked()"
-          pButton
-          type="button"
-          icon="pi pi-thumbs-up"
-          class="p-button-text p-button-danger p-4 ml-6 p-button-rounded"
-        ></button>
+        <button (click)="Liked()" pButton type="button" icon="pi pi-thumbs-up"
+          class="p-button-text p-button-danger p-4 ml-6 p-button-rounded"></button>
       </i>
       <ng-template #isNotLiked>
-        <button
-          (click)="Liked()"
-          pButton
-          type="button"
-          icon="pi pi-thumbs-down"
-          class="p-button-text p-button-danger p-4 ml-6 p-button-rounded"
-        ></button>
+        <button (click)="Liked()" pButton type="button" icon="pi pi-thumbs-down"
+          class="p-button-text p-button-danger p-4 ml-6 p-button-rounded"></button>
       </ng-template>
     </ng-template>
   </p-card>
@@ -58,3 +35,4 @@
     Your Favorite list is empty now !!
   </h2>
 </ng-template>
+

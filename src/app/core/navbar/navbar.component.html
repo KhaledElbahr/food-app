@@ -12,22 +12,13 @@
   ></button>
     <i *ngIf="!isLoggedIn; else logout">
       <p-button label="Register" [routerLink]="['/auth/register']"></p-button>
-      <p-button
-        label="Sign In"
-        icon="pi pi-fw pi-sign-in"
-        iconPos="left"
-        [routerLink]="['/auth/login']"
-      ></p-button>
+      <p-button label="Sign In" icon="pi pi-fw pi-sign-in" iconPos="left" [routerLink]="['/auth/login']"></p-button>
     </i>
     <ng-template #logout>
-      <p-button
-        label="Sign Out"
-        icon="pi pi-fw pi-sign-out"
-        iconPos="left"
-        (click)="onLogout()"
-        [routerLink]="['']"
-      ></p-button>
+      <p-button label="Sign Out" icon="pi pi-fw pi-sign-out" iconPos="left" (click)="onLogout()" [routerLink]="['']">
+      </p-button>
     </ng-template>
-    <input type="text" pInputText placeholder="Search" />
+    <input class="form-control" type="text" pInputText placeholder="Search" name="search" (keyup)="onInsertText($event)"
+      [(ngModel)]="searchText" />
   </ng-template>
 </p-menubar>

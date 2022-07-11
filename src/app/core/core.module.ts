@@ -4,22 +4,22 @@ import { CommonModule } from '@angular/common';
 import { CoreRoutingModule } from './core-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 // NGPrime
-import {ButtonModule} from 'primeng/button';
-import {RippleModule} from 'primeng/ripple';
-import {MenubarModule} from 'primeng/menubar';
-import {MenuItem} from 'primeng/api';
+import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
+import { MenubarModule } from 'primeng/menubar';
+import { MenuItem } from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
 import { TagModule } from 'primeng/tag';
-import {CardModule} from 'primeng/card';
+import { CardModule } from 'primeng/card';
 import { FooterComponent } from './footer/footer.component';
-import {TabMenuModule} from 'primeng/tabmenu';
-
+import { TabMenuModule } from 'primeng/tabmenu';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     FooterComponent,
-  
+
 
   ],
   imports: [
@@ -32,6 +32,7 @@ import {TabMenuModule} from 'primeng/tabmenu';
     TagModule,
     CardModule,
     TabMenuModule,
+    FormsModule,
   ],
   exports: [
     NavbarComponent,

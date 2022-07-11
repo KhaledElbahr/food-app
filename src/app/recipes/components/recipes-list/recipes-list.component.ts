@@ -1,6 +1,7 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RecipesService } from 'src/app/shared/services/recipes.service';
+import { SearchService } from 'src/app/shared/services/search.service';
 import { Recipe } from '../../../shared/models/Recipe';
 @Component({
   selector: 'app-recipes-list',
@@ -10,21 +11,25 @@ import { Recipe } from '../../../shared/models/Recipe';
 export class RecipesListComponent implements OnInit {
 
   recipeList!: Recipe[];
-  category : string="" ;
-  param:any ;
-  waitingFlag = true ;
-
-  constructor(private recipeService: RecipesService , private activatedRoute :ActivatedRoute ) {}
+  category: string = "";
+  param: any;
+  waitingFlag = true;
+  searchText!: string;
+  constructor(private recipeService: RecipesService, private activatedRoute: ActivatedRoute, private searchService: SearchService) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(paramMap => {
       this.param = paramMap
       this.category = this.param.params.category;
       this.recipeService.getRecipes(this.category).subscribe(
-        (data) => {this.recipeList = data.recipes; this.waitingFlag = false; console.log(this.recipeList);
+        (data) => {
+          this.recipeList = data.recipes; this.waitingFlag = false; console.log(this.recipeList);
         },
         (err) => console.log(err)
-        );
+      );
+    });
+    this.searchService.getsearchWord().subscribe((value) => {
+      this.searchText = value;
     });
 
   }
