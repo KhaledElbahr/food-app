@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 import { MenuItem } from 'primeng/api';
+import { SearchService } from 'src/app/shared/services/search.service';
+import { AuthService } from './../../auth/services/auth.service';
+import { Router, Event } from '@angular/router';
+import { NavigationStart, NavigationError, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -10,10 +14,22 @@ import { MenuItem } from 'primeng/api';
       margin-right: .5em;
   }`]
 })
-export class NavbarComponent implements OnInit {
-  items: MenuItem[] =[];
-
-  constructor(private primengConfig: PrimeNGConfig) {}
+export class NavbarComponent implements OnInit, DoCheck {
+  isLoggedIn: boolean = false;
+  items: MenuItem[] = [];
+  searchText: string = '';
+  constructor(
+    private primengConfig: PrimeNGConfig,
+    private authService: AuthService,
+    private searchService: SearchService,
+    private router: Router) {
+      this.router.events.subscribe((event: Event) => {
+        if (event instanceof NavigationStart) {
+            this.searchService.setSearchWord('');
+            this.searchText = '';
+        }
+      })
+    }
 
   ngOnInit() {
     this.primengConfig.ripple = true;
@@ -37,9 +53,23 @@ export class NavbarComponent implements OnInit {
           {
             "label": "Top Ranked",
             "icon": "fa-solid fa-ranking-star",
-            "routerLink": "recipes/top-rank",
+            "routerLink": "top-rank",
           }
       ];
+  }
+
+  ngDoCheck(): void {
+    if (this.isLoggedIn !== this.authService.loggedIn) {
+      this.isLoggedIn = this.authService.loggedIn;
+    }
+  }
+
+  onLogout() {
+    this.authService.logout();
+  }
+
+  onInsertText(event: any) {
+    this.searchService.setSearchWord(this.searchText);
   }
 
 }

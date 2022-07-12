@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from 'src/app/shared/services/search.service';
 
 
 @Component({
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top-ranked.component.scss']
 })
 export class TopRankedComponent implements OnInit {
-
+  searchText!: string;
   recipeList: any[] = [
-    {"publisher": "All Recipes","title": "Zesty Slow Cooker Chicken Barbeque","source_url": "http://allrecipes.com/Recipe/Zesty-Slow-Cooker-Chicken-Barbecue/Detail.aspx","recipe_id": "34889","image_url": "http://forkify-api.herokuapp.com/images/4515542dbb.jpg","social_rank": 100,"publisher_url": "http://allrecipes.com"},
+    { "publisher": "All Recipes", "title": "Zesty Slow Cooker Chicken Barbeque", "source_url": "http://allrecipes.com/Recipe/Zesty-Slow-Cooker-Chicken-Barbecue/Detail.aspx", "recipe_id": "34889", "image_url": "http://forkify-api.herokuapp.com/images/4515542dbb.jpg", "social_rank": 100, "publisher_url": "http://allrecipes.com" },
 
     {
       "publisher": "The Pioneer Woman",
@@ -37,11 +38,14 @@ export class TopRankedComponent implements OnInit {
       "image_url": "http://forkify-api.herokuapp.com/images/4940301746_c16a4e7edf_o72c2.jpg",
       "social_rank": 99.99999999969766,
       "publisher_url": "http://thepioneerwoman.com"
-    }  ]
+    }]
 
-  constructor() { }
+  constructor(private searchService: SearchService) { }
 
   ngOnInit(): void {
+    this.searchService.getsearchWord().subscribe((value) => {
+      this.searchText = value;
+    });
   }
 
 }

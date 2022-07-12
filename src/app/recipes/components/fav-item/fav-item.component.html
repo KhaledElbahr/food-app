@@ -1,0 +1,42 @@
+<div class="h-15rem">
+  <img alt="Card" [style]="{ height: '100%' }" [src]="recipe.image_url" />
+</div>
+
+<div class="h-10rem">
+  <h2>{{ recipe.title }}</h2>
+  <p class="text-500">
+    Publisher :
+    <a
+      [href]="recipe.publisher_url"
+      class="p-text-secondary no-underline"
+      target="_blank"
+      >{{ recipe.publisher }}</a
+    >
+  </p>
+</div>
+<button
+  pButton
+  type="button"
+  label="Remove"
+  class="mr-6 lg:mr-3 xl:mr-4"
+  style="width: 50%"
+  (click)="removeFromFavlist(recipe.recipe_id)"
+></button>
+<i *ngIf="recipe.isLike; else isNotLike">
+  <button
+    (click)="Liked()"
+    pButton
+    type="button"
+    icon="pi pi-thumbs-up"
+    class="p-button-text p-button-danger p-4 ml-6 p-button-rounded"
+  ></button>
+</i>
+<ng-template #isNotLike>
+  <button
+    (click)="Liked()"
+    pButton
+    type="button"
+    icon="pi pi-thumbs-down"
+    class="p-button-text p-button-danger p-4 ml-6 p-button-rounded"
+  ></button>
+</ng-template>

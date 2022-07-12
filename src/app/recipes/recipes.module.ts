@@ -7,15 +7,19 @@ import { RecipesListComponent } from './components/recipes-list/recipes-list.com
 import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
 import { RecipeItemComponent } from './components/recipe-item/recipe-item.component';
 // NGPrime
-import {ButtonModule} from 'primeng/button';
-import {RippleModule} from 'primeng/ripple';
-import {MenubarModule} from 'primeng/menubar';
-import {MenuItem} from 'primeng/api';
+import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
+import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
 import { TagModule } from 'primeng/tag';
 import {CardModule} from 'primeng/card';
 import { CreateRecipeComponent } from './components/create-recipe/create-recipe.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { FavRecipesComponent } from './components/fav-recipes/fav-recipes.component';
+import { SearchPipe } from '../shared/pipes/search.pipe';
+import { FavItemComponent } from './components/fav-item/fav-item.component';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +28,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RecipeDetailsComponent,
     RecipeItemComponent,
     CreateRecipeComponent
+    FavRecipesComponent,
+    SearchPipe,
+    FavItemComponent,
   ],
   imports: [
     CommonModule,
@@ -35,8 +42,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TagModule,
     CardModule,
     FormsModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    ProgressSpinnerModule
   ],
   exports: [
     TopRankedComponent,
@@ -44,7 +51,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     RecipeDetailsComponent,
     RecipeItemComponent,
-    CreateRecipeComponent
-  ]
+    CreateRecipeComponent,
+    FavRecipesComponent,
+  ],
 })
 export class RecipesModule { }

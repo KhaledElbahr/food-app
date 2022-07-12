@@ -1,18 +1,19 @@
 <h2 class="text-center mt-7 text-5xl text-blue-800">Top Ranked Recipes</h2>
 <section class="border-1 border-300 border-round px-2">
   <h3 class="text-2xl text-700">Salad Recipes</h3>
-  <div class="grid p3-5">
-    <app-recipe-item
-      [recipe]="recipeList[i]"
-      *ngFor="let recipe of recipeList; let i = index"
-      class="col-12 md:col-6 lg:col-3"
-    ></app-recipe-item>
+  <!-- <div class="grid p3-5">
+    <app-recipe-item [recipe]="recipeList[i]" *ngFor="let recipe of recipeList | search: searchText; let i = index"
+      class="col-12 md:col-6 lg:col-4">
+    </app-recipe-item>
+  </div> -->
+
+
+  <div class="grid py-5 col-12 md:col-6 lg:col-4" *ngFor="let recipe of recipeList | search: searchText;">
+    <app-recipe-item [recipe]="recipe">
+    </app-recipe-item>
   </div>
-  <button
-    pButton
-    type="button"
-    class="block mx-auto my-4 bg-green-500 px-4 border-0"
-  >
+
+  <button pButton type="button" class="block mx-auto my-4 bg-green-500 px-4 border-0">
     Explore More
   </button>
 </section>
