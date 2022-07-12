@@ -6,6 +6,7 @@
     <button
     pButton
     type="button"
+    *ngIf="isLoggedIn"
     icon="pi pi-heart text-3xl mt-2"
     class="p-button-text mx-4"
     [routerLink]="['fav-recipes']"

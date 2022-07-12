@@ -1,13 +1,9 @@
 <h2 class="text-center mt-7 text-5xl text-blue-900">Favorite Recipes</h2>
 
-<div class="grid py-5" *ngIf="favlist.length > 0; else empty">
-  <p-card
-    styleClass="p-card-shadow"
-    class="col-12 md:col-6 lg:col-4 xl:col-3"
-    *ngFor="let recipe of favlist | search: searchText"
-  >
+<div *ngIf="favlist.length > 0; else empty">
+  <div class="col-12" *ngFor="let recipe of favlist | search: searchText">
     <app-fav-item [recipe]="recipe"></app-fav-item>
-  </p-card>
+  </div>
 </div>
 <ng-template #empty>
   <h2 class="text-center mt-7 text-blue-900">

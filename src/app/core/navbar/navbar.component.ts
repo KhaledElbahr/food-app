@@ -33,34 +33,68 @@ export class NavbarComponent implements OnInit, DoCheck {
 
   ngOnInit() {
     this.primengConfig.ripple = true;
-    this.items = [
-      {
-        "label": "Pizza",
-        "icon": "",
-        "routerLink": "recipes/pizza"
-      },
-      {
-        "label": "Salad",
-        "icon": "",
-        "routerLink": "recipes/salad"
-      },
-      {
-        "label": "Beef",
-        "icon": "",
-        "routerLink": "recipes/beef"
-      },
-      {
-        "label": "Top Ranked",
-        "icon": "",
-        "routerLink": "top-rank",
-      }
-    ];
   }
 
   ngDoCheck(): void {
     if (this.isLoggedIn !== this.authService.loggedIn) {
       this.isLoggedIn = this.authService.loggedIn;
+
+    if (this.isLoggedIn) {
+      this.items = [
+        {
+          "label": "Pizza",
+          "icon": "",
+          "routerLink": "recipes/pizza"
+        },
+        {
+          "label": "Salad",
+          "icon": "",
+          "routerLink": "recipes/salad"
+        },
+        {
+          "label": "Beef",
+          "icon": "",
+          "routerLink": "recipes/beef"
+        },
+        {
+          "label": "Top Ranked",
+          "icon": "",
+          "routerLink": "top-rank",
+        }
+      ]
     }
+
+    if (!this.isLoggedIn) {
+      this.items = []
+    }
+
+
+    }
+
+    // if (this.isLoggedIn) {
+      // this.items = [
+      //   {
+      //     "label": "Pizza",
+      //     "icon": "",
+      //     "routerLink": "recipes/pizza"
+      //   },
+      //   {
+      //     "label": "Salad",
+      //     "icon": "",
+      //     "routerLink": "recipes/salad"
+      //   },
+      //   {
+      //     "label": "Beef",
+      //     "icon": "",
+      //     "routerLink": "recipes/beef"
+      //   },
+      //   {
+      //     "label": "Top Ranked",
+      //     "icon": "",
+      //     "routerLink": "top-rank",
+      //   }
+      // ]
+    // }
   }
 
   onLogout() {

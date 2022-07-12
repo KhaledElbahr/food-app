@@ -11,6 +11,7 @@ import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
+import { DividerModule } from "primeng/divider";
 import { TagModule } from 'primeng/tag';
 import { CardModule } from 'primeng/card';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
@@ -35,6 +36,7 @@ import { FavItemComponent } from './components/fav-item/fav-item.component';
     RippleModule,
     MenubarModule,
     InputTextModule,
+    DividerModule,
     TagModule,
     CardModule,
     ProgressSpinnerModule
