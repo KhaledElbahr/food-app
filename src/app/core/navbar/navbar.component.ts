@@ -34,27 +34,28 @@ export class NavbarComponent implements OnInit, DoCheck {
   ngOnInit() {
     this.primengConfig.ripple = true;
     this.items = [
-      {
-        "label": "Pizza",
-        "icon": "",
-        "routerLink": "recipes/pizza"
-      },
-      {
-        "label": "Salad",
-        "icon": "",
-        "routerLink": "recipes/salad"
-      },
-      {
-        "label": "Beef",
-        "icon": "",
-        "routerLink": "recipes/beef"
-      },
-      {
-        "label": "Top Ranked",
-        "icon": "",
-        "routerLink": "top-rank",
-      }
-    ];
+          {
+            "label": "Pizza",
+            "icon": "fa-solid fa-pizza-slice",
+            "routerLink": "recipes/pizza"
+            
+          },
+          {
+            "label": "Salad",
+            "icon": "fa-solid fa-bowl-food",
+            "routerLink": "recipes/salad"
+          },
+          {
+            "label": "Beef",
+            "icon": "fa-solid fa-burger",
+            "routerLink": "recipes/beef"
+          },
+          {
+            "label": "Top Ranked",
+            "icon": "fa-solid fa-ranking-star",
+            "routerLink": "top-rank",
+          }
+      ];
   }
 
   ngDoCheck(): void {
