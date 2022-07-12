@@ -14,13 +14,16 @@ import {MenuItem} from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
 import { TagModule } from 'primeng/tag';
 import {CardModule} from 'primeng/card';
+import { CreateRecipeComponent } from './components/create-recipe/create-recipe.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     TopRankedComponent,
     RecipesListComponent,
     RecipeDetailsComponent,
-    RecipeItemComponent
+    RecipeItemComponent,
+    CreateRecipeComponent
   ],
   imports: [
     CommonModule,
@@ -31,12 +34,17 @@ import {CardModule} from 'primeng/card';
     InputTextModule,
     TagModule,
     CardModule,
+    FormsModule,
+    ReactiveFormsModule
+    
   ],
   exports: [
     TopRankedComponent,
     RecipesListComponent,
+    ReactiveFormsModule,
     RecipeDetailsComponent,
-    RecipeItemComponent
+    RecipeItemComponent,
+    CreateRecipeComponent
   ]
 })
 export class RecipesModule { }

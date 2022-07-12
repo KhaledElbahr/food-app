@@ -20,23 +20,23 @@ export class NavbarComponent implements OnInit {
     this.items = [
           {
             "label": "Pizza",
-            "icon": "",
+            "icon": "fa-solid fa-pizza-slice",
             "routerLink": "recipes/pizza"
             
           },
           {
             "label": "Salad",
-            "icon": "",
+            "icon": "fa-solid fa-bowl-food",
             "routerLink": "recipes/salad"
           },
           {
             "label": "Beef",
-            "icon": "",
+            "icon": "fa-solid fa-burger",
             "routerLink": "recipes/beef"
           },
           {
             "label": "Top Ranked",
-            "icon": "",
+            "icon": "fa-solid fa-ranking-star",
             "routerLink": "recipes/top-rank",
           }
       ];
