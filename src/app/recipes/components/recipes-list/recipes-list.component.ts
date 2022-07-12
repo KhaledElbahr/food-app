@@ -11,32 +11,39 @@ import { Recipe } from '../../../shared/models/Recipe';
 })
 export class RecipesListComponent implements OnInit {
   private subscriptions = new Subscription();
+  favlist!: Array<Recipe>;
   recipeList!: Recipe[];
-  category: string = "";
+  category: string = '';
   param: any;
   waitingFlag = true;
   searchText!: string;
-  constructor(private recipeService: RecipesService, private activatedRoute: ActivatedRoute, private searchService: SearchService) { }
+  constructor(
+    private recipeService: RecipesService,
+    private activatedRoute: ActivatedRoute,
+    private searchService: SearchService
+  ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe(paramMap => {
-      this.param = paramMap
+    this.activatedRoute.paramMap.subscribe((paramMap) => {
+      this.param = paramMap;
       this.category = this.param.params.category;
       this.recipeService.getRecipes(this.category).subscribe(
         (data) => {
-          this.recipeList = data.recipes; this.waitingFlag = false; console.log(this.recipeList);
+          this.recipeList = data.recipes;
+          this.waitingFlag = false;
+          console.log(this.recipeList);
         },
         (err) => console.log(err)
       );
     });
-    this.subscriptions.add(this.searchService.getsearchWord().subscribe((value) => {
-      this.searchText = value;
-    }));
-
+    this.subscriptions.add(
+      this.searchService.getsearchWord().subscribe((value) => {
+        this.searchText = value;
+      })
+    );
   }
 
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }
-
 }

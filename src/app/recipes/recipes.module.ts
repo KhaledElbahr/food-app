@@ -16,6 +16,7 @@ import { CardModule } from 'primeng/card';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { FavRecipesComponent } from './components/fav-recipes/fav-recipes.component';
 import { SearchPipe } from '../shared/pipes/search.pipe';
+import { FavItemComponent } from './components/fav-item/fav-item.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SearchPipe } from '../shared/pipes/search.pipe';
     RecipeItemComponent,
     FavRecipesComponent,
     SearchPipe,
+    FavItemComponent,
   ],
   imports: [
     CommonModule,

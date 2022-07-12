@@ -6,3 +6,7 @@ export const removeFromFav = createAction(
   'removeFromFav',
   props<{ recipe_id: string }>()
 );
+export const changeLike = createAction(
+  'changeLike',
+  props<{ recipe_id: string }>()
+);
