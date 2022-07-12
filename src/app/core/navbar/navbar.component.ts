@@ -3,6 +3,8 @@ import { PrimeNGConfig } from 'primeng/api';
 import { MenuItem } from 'primeng/api';
 import { SearchService } from 'src/app/shared/services/search.service';
 import { AuthService } from './../../auth/services/auth.service';
+import { Router, Event } from '@angular/router';
+import { NavigationStart, NavigationError, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -18,7 +20,16 @@ export class NavbarComponent implements OnInit, DoCheck {
   searchText: string = '';
   constructor(
     private primengConfig: PrimeNGConfig,
-    private authService: AuthService, private searchService: SearchService) { }
+    private authService: AuthService,
+    private searchService: SearchService,
+    private router: Router) {
+      this.router.events.subscribe((event: Event) => {
+        if (event instanceof NavigationStart) {
+            this.searchService.setSearchWord('');
+            this.searchText = '';
+        }
+      })
+    }
 
   ngOnInit() {
     this.primengConfig.ripple = true;

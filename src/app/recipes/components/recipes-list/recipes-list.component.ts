@@ -1,3 +1,4 @@
+import { Observable, Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RecipesService } from 'src/app/shared/services/recipes.service';
@@ -9,7 +10,7 @@ import { Recipe } from '../../../shared/models/Recipe';
   styleUrls: ['./recipes-list.component.scss'],
 })
 export class RecipesListComponent implements OnInit {
-
+  private subscriptions = new Subscription();
   recipeList!: Recipe[];
   category: string = "";
   param: any;
@@ -28,10 +29,14 @@ export class RecipesListComponent implements OnInit {
         (err) => console.log(err)
       );
     });
-    this.searchService.getsearchWord().subscribe((value) => {
+    this.subscriptions.add(this.searchService.getsearchWord().subscribe((value) => {
       this.searchText = value;
-    });
+    }));
 
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
 }

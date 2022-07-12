@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "compodoc": "npx compodoc -p tsconfig.doc.json",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -35,6 +36,7 @@
     "@angular-devkit/build-angular": "~13.3.8",
     "@angular/cli": "~13.3.8",
     "@angular/compiler-cli": "~13.3.0",
+    "@compodoc/compodoc": "^1.1.19",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
     "jasmine-core": "~4.0.0",
