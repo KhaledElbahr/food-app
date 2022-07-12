@@ -1,7 +1,8 @@
-<p-menubar [model]="items">
-  <ng-template pTemplate="start">
-    <h2 [routerLink]="['/top-rank']" style="cursor: pointer">Food App</h2>
+<p-menubar [style]="{'border': 'none','box-shadow':'2px 2px 4px 3px #ddd'}" [model]="items">
+  <ng-template pTemplate="start" >
+    <h2 [routerLink]="['/top-rank']" class="cursor-pointer  mr-2">Food App</h2>
   </ng-template>
+
   <ng-template pTemplate="end">
     <button
     pButton

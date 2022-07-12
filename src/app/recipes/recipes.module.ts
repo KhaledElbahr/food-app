@@ -13,11 +13,14 @@ import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
 import { DividerModule } from "primeng/divider";
 import { TagModule } from 'primeng/tag';
-import { CardModule } from 'primeng/card';
+import {CardModule} from 'primeng/card';
+import { CreateRecipeComponent } from './components/create-recipe/create-recipe.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { FavRecipesComponent } from './components/fav-recipes/fav-recipes.component';
 import { SearchPipe } from '../shared/pipes/search.pipe';
 import { FavItemComponent } from './components/fav-item/fav-item.component';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +28,7 @@ import { FavItemComponent } from './components/fav-item/fav-item.component';
     RecipesListComponent,
     RecipeDetailsComponent,
     RecipeItemComponent,
+    CreateRecipeComponent
     FavRecipesComponent,
     SearchPipe,
     FavItemComponent,
@@ -39,13 +43,17 @@ import { FavItemComponent } from './components/fav-item/fav-item.component';
     DividerModule,
     TagModule,
     CardModule,
+    FormsModule,
+    ReactiveFormsModule,
     ProgressSpinnerModule
   ],
   exports: [
     TopRankedComponent,
     RecipesListComponent,
+    ReactiveFormsModule,
     RecipeDetailsComponent,
     RecipeItemComponent,
+    CreateRecipeComponent,
     FavRecipesComponent,
   ],
 })
