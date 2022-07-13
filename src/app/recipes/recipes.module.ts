@@ -28,7 +28,7 @@ import { FavItemComponent } from './components/fav-item/fav-item.component';
     RecipesListComponent,
     RecipeDetailsComponent,
     RecipeItemComponent,
-    CreateRecipeComponent
+    CreateRecipeComponent,
     FavRecipesComponent,
     SearchPipe,
     FavItemComponent,

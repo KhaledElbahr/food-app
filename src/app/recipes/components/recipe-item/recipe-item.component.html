@@ -15,6 +15,12 @@
         >{{ recipe.publisher }}</a
       >
     </p>
+    <span>
+      <i class="pi pi-star-fill text-yellow-500 mr-1"></i>
+      <span class="font-medium text-black-500">
+        {{ ((recipe.social_rank / 100) * 5).toFixed(2) }}
+      </span>
+    </span>
   </div>
   <ng-template pTemplate="footer">
     <button
