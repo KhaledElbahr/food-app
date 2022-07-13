@@ -9,12 +9,6 @@ const routes: Routes = [
   { path: '', redirectTo: '/top-rank', pathMatch: 'full' },
   { path: 'top-rank', component: TopRankedComponent },
   { path: 'recipes', canLoad: [AuthGuard], loadChildren: () => import('./recipes/recipes.module').then(m => m.RecipesModule) },
-  // { path: 'recipes', children: [
-  //   { path: 'beef',  component: RecipesListComponent },
-  //   { path: 'salad', component: RecipesListComponent },
-  //   { path: 'pizza', component: RecipesListComponent },
-  //   { path: 'recipe/:id', component: RecipeDetailsComponent }
-  // ]},
   // { path: '**', component: PageNotFoundComponent },
 ];
 
