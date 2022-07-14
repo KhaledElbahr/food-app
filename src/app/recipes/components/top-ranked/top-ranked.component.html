@@ -1,14 +1,23 @@
-<h2 class="text-center mt-7 text-5xl text-blue-800">Top Ranked Recipes</h2>
-<section class="border-1 border-300 border-round px-2">
-  <h3 class="text-2xl text-700">Salad Recipes</h3>
-  <div class="flex flex-wrap">
-  <div class="col-12 md:col-6 lg:col-4" *ngFor="let recipe of recipeList | search: searchText;">
-    <app-recipe-item [recipe]="recipe">
-    </app-recipe-item>
-  </div>
+<div
+*ngIf="waitingFlag else notWait"
+style="height: 100vh"
+class="flex justify-content-center align-items-center"
+>
+<p-progressSpinner></p-progressSpinner>
 </div>
+<ng-template #notWait>
+  <h2 class="text-center mt-7 text-5xl text-blue-800">Top Ranked Recipes</h2>
+  <section class="border-1 border-300 border-round px-2 my-7" *ngFor="let prob of topRanked | keyvalue " >
+    <h3 class="text-2xl text-700">{{prob.key}} Recipes</h3>
+    <div class="flex flex-wrap">
+    <div class="col-12 md:col-6 lg:col-4" *ngFor="let recipe of topRanked[prob.key] | search: searchText;">
+      <app-recipe-item [recipe]="recipe">
+      </app-recipe-item>
+    </div>
+  </div>
 
-  <button pButton type="button" class="block mx-auto my-4 bg-green-500 px-4 border-0">
-    Explore More
-  </button>
-</section>
+    <button pButton type="button" class="block mx-auto my-6 bg-green-500 px-4 border-0" [routerLink]="'/recipes/'+prob.key">
+      Explore More
+    </button>
+  </section>
+</ng-template>
