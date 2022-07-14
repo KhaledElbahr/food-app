@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:prod": "ng build --prod && lite-server --baseDir dist/food-app",
     "build": "ng build",
     "compodoc": "npx compodoc -p tsconfig.doc.json",
     "watch": "ng build --watch --configuration development",

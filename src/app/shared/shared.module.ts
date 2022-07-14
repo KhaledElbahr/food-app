@@ -42,6 +42,7 @@ import { DropdownModule } from 'primeng/dropdown';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    NotFoundComponent,
     DropdownDirective,
     // PrimeNg
     ButtonModule,

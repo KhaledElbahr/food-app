@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { AuthGuard } from './auth/services/auth.guard';
 import { TopRankedComponent } from './recipes/components/top-ranked/top-ranked.component';
-import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 const routes: Routes = [
   { path: 'auth', redirectTo: '/auth/login', pathMatch: 'full' },
@@ -10,7 +9,6 @@ const routes: Routes = [
   { path: '', redirectTo: '/top-rank', pathMatch: 'full' },
   { path: 'top-rank', component: TopRankedComponent },
   { path: 'recipes', canLoad: [AuthGuard], loadChildren: () => import('./recipes/recipes.module').then(m => m.RecipesModule) },
-  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

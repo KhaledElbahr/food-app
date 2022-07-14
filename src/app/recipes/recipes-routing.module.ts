@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'recipes/:category', canActivate: [AuthGuard], component: RecipesListComponent },
   { path: 'recipe/:id', canActivate: [AuthGuard], component: RecipeDetailsComponent },
   { path: 'editMode/:id', canActivate: [AuthGuard], component: CreateRecipeComponent },
-  { path: 'fav-recipes', canActivate: [AuthGuard], component: FavRecipesComponent }
+  { path: 'fav-recipes', canActivate: [AuthGuard], component: FavRecipesComponent },
 ];
 
 @NgModule({

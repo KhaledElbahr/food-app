@@ -8,6 +8,14 @@
 
   <ng-template pTemplate="end">
     <button
+    pButton
+    type="button"
+    *ngIf="isLoggedIn"
+    icon="pi pi-plus text-3xl mt-2"
+    class="p-button-text mx-4"
+    [routerLink]="['editMode/add-recipe']"
+    ></button>
+    <button
       pButton
       type="button"
       *ngIf="isLoggedIn"

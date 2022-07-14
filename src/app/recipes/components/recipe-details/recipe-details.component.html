@@ -43,14 +43,17 @@
         >
       </p>
 
-      <button type="button" class="mx-auto w-4 text-white bg-primary-500
-      border-primary-500 p-1 text-sm
-        border-solid border-round cursor-pointer
-        transition-all transition-duration-200 hover:bg-primary-600
-        hover:border-primary-600 active:bg-primary-700 active:border-primary-700"
-        (click)="updateRecipe(recipe.recipe_id)">
-        Update Recipe
-      </button>
+      <button
+      pButton
+      type="button"
+      label="Update Recipe"
+      class="mt-3 mr-6 lg:mr-3 xl:mr-4"
+      style="width: 50%"
+      (click)="updateRecipe(recipe.recipe_id)"
+    ></button>
+
+
+
     </div>
   </div>
 </ng-container>

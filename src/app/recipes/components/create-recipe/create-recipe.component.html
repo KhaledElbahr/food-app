@@ -4,137 +4,241 @@
       <h2 class="heading-primary">{{ pageTitle }}</h2>
     </div>
 
-  <form (ngSubmit)="onSubmit(createRecipeForm.value)" class="card md:col-5 mx-auto border-solid border-gray-50 p-8"
-  [formGroup]="createRecipeForm">
-  <div class="field col-12 ">
-    <div class="p-float-label ">
-      <input [style]="{ width: '100%' }" id="title" type="text" pInputText formControlName="title" />
-      <label for="float-input"> Title </label>
-    </div>
+    <form
+      (ngSubmit)="onSubmit(createRecipeForm.value)"
+      class="card md:col-5 mx-auto border-solid border-gray-50 p-8"
+      [formGroup]="createRecipeForm"
+    >
+      <div class="field col-12">
+        <div class="p-float-label">
+          <input
+            [style]="{ width: '100%' }"
+            id="title"
+            type="text"
+            pInputText
+            formControlName="title"
+          />
+          <label for="float-input"> Title </label>
+        </div>
 
-    <p class="mb-1" *ngIf="!createRecipeForm.controls['title'].valid &&
-        createRecipeForm.controls['title'].touched ">
-      <small class="text-red-400" *ngIf="createRecipeForm.controls['title'].errors?.['required']">
-        Title is a required field!
-      </small>
-    </p>
-  </div>
-
-  <div class="field col-12 ">
-    <div class="p-float-label ">
-      <input [style]="{ width: '100%' }" id="publisher" type="text" pInputText formControlName="publisher" />
-      <label for="float-input">Publisher</label>
-    </div>
-
-    <small class="mb-1" *ngIf="
-       !createRecipeForm.controls['publisher'].valid &&
-        createRecipeForm.controls['publisher'].touched ">
-      <p class="text-red-400" *ngIf="createRecipeForm.controls['publisher'].errors?.['required']">
-        Publisher is a required field!
-      </p>
-    </small>
-  </div>
-
-  <div class="field col-12">
-    <div class="p-float-label ">
-      <input [style]="{ width: '100%' }" id="sourceURL" type="url" pInputText formControlName="sourceURL" />
-      <label for="float-input">Source_Url</label>
-    </div>
-
-    <small class="mb-1" *ngIf="
-       !createRecipeForm.controls['sourceURL'].valid &&
-        createRecipeForm.controls['sourceURL'].touched ">
-      <p class="text-red-400" *ngIf="createRecipeForm.controls['sourceURL'].errors?.['required']">
-        sourceURL is a required field!
-      </p>
-      <p class="text-red-400" *ngIf="createRecipeForm.controls['sourceURL'].errors?.['pattern']">
-        please write a valid pattern
-      </p>
-    </small>
-  </div>
-
-  <div class="field col-12">
-    <div class="p-float-label ">
-      <input [style]="{ width: '100%' }" id="imgURL" type="url" pInputText formControlName="imgURL" />
-      <label for="float-input">Image_Url</label>
-    </div>
-
-    <small class="mb-1" *ngIf="
-       !createRecipeForm.controls['imgURL'].valid &&
-        createRecipeForm.controls['imgURL'].touched ">
-      <p class="text-red-400" *ngIf="createRecipeForm.controls['imgURL'].errors?.['required']">
-        imgURL is a required field!
-      </p>
-      <p class="text-red-400" *ngIf="createRecipeForm.controls['imgURL'].errors?.['pattern']">
-        please write a valid pattern
-      </p>
-    </small>
-  </div>
-
-  <div class="field col-12">
-    <div class="p-float-label ">
-      <input [style]="{ width: '100%' }" id="publisherURL" type="url" pInputText formControlName="publisherURL" />
-      <label for="float-input">Publisher_Url</label>
-    </div>
-    <small class="mb-1" *ngIf="
-       !createRecipeForm.controls['publisherURL'].valid &&
-        createRecipeForm.controls['publisherURL'].touched ">
-      <p class="text-red-400" *ngIf="createRecipeForm.controls['publisherURL'].errors?.['required']">
-        publisherURL is a required field!
-      </p>
-      <p class="text-red-400" *ngIf="createRecipeForm.controls['publisherURL'].errors?.['pattern']">
-        please write a valid pattern
-      </p>
-    </small>
-  </div>
-
-  <div *ngFor="let control of  ingredientsAsFormArray.controls ; let i= index"
-    formArrayName='ingredients'>
-    <div class="field col-12 " [formGroupName]="i">
-      <div class="p-float-label mb-1">
-        <input [style]="{ width: '100%' }" id="ingredient" type="text" pInputText formControlName="ingredient" />
-        <label for="float-input">Ingredients </label>
+        <p
+          class="mb-1"
+          *ngIf="
+            !createRecipeForm.controls['title'].valid &&
+            createRecipeForm.controls['title'].touched
+          "
+        >
+          <small
+            class="text-red-400"
+            *ngIf="createRecipeForm.controls['title'].errors?.['required']"
+          >
+            Title is a required field!
+          </small>
+        </p>
       </div>
-    </div>
-  </div>
-  <div class="form-group row mb-2 ">
-    <div class="col-12  m-auto">
-      <button class="surface-100 w-12  border-none p-2 text-primary cursor-pointer" type="button"
-        (click)="addIngredient()">
-        Add new ingredient
-      </button>
-    </div>
-  </div>
 
-  <div class="field col-12 ">
-    <div class="p-float-label ">
-      <input [style]="{ width: '100%' }" id="socialRank" type="number" min="1" max="100" pInputText
-        formControlName="socialRank" />
-      <label for="float-input">Social rank</label>
-    </div>
+      <div class="field col-12">
+        <div class="p-float-label">
+          <input
+            [style]="{ width: '100%' }"
+            id="publisher"
+            type="text"
+            pInputText
+            formControlName="publisher"
+          />
+          <label for="float-input">Publisher</label>
+        </div>
 
-    <small class="mb-1" *ngIf="
-         !createRecipeForm.controls['socialRank'].valid &&
-          createRecipeForm.controls['socialRank'].touched ">
-      <p class="text-red-400" *ngIf="createRecipeForm.controls['socialRank'].errors?.['required']">
-        socialRank is a required field!
-      </p>
-      <p class="text-red-400" *ngIf="createRecipeForm.controls['socialRank'].errors?.['pattern']">
-        max number is 100!
-      </p>
-    </small>
-  </div>
+        <small
+          class="mb-1"
+          *ngIf="
+            !createRecipeForm.controls['publisher'].valid &&
+            createRecipeForm.controls['publisher'].touched
+          "
+        >
+          <p
+            class="text-red-400"
+            *ngIf="createRecipeForm.controls['publisher'].errors?.['required']"
+          >
+            Publisher is a required field!
+          </p>
+        </small>
+      </div>
 
-  <div class="mt-2 col-12">
-    <button type="submit" class="mx-auto w-4 text-white bg-primary-500
-       border-primary-500 p-1 text-sm
-         border-solid border-round cursor-pointer
-         transition-all transition-duration-200 hover:bg-primary-600
-         hover:border-primary-600 active:bg-primary-700 active:border-primary-700">
-      Add Recipe
-    </button>
-  </div>
-  </form>
+      <div class="field col-12">
+        <div class="p-float-label">
+          <input
+            [style]="{ width: '100%' }"
+            id="sourceURL"
+            type="url"
+            pInputText
+            formControlName="sourceURL"
+          />
+          <label for="float-input">Source_Url</label>
+        </div>
 
+        <small
+          class="mb-1"
+          *ngIf="
+            !createRecipeForm.controls['sourceURL'].valid &&
+            createRecipeForm.controls['sourceURL'].touched
+          "
+        >
+          <p
+            class="text-red-400"
+            *ngIf="createRecipeForm.controls['sourceURL'].errors?.['required']"
+          >
+            sourceURL is a required field!
+          </p>
+          <p
+            class="text-red-400"
+            *ngIf="createRecipeForm.controls['sourceURL'].errors?.['pattern']"
+          >
+            please write a valid pattern
+          </p>
+        </small>
+      </div>
+
+      <div class="field col-12">
+        <div class="p-float-label">
+          <input
+            [style]="{ width: '100%' }"
+            id="imgURL"
+            type="url"
+            pInputText
+            formControlName="imgURL"
+          />
+          <label for="float-input">Image_Url</label>
+        </div>
+
+        <small
+          class="mb-1"
+          *ngIf="
+            !createRecipeForm.controls['imgURL'].valid &&
+            createRecipeForm.controls['imgURL'].touched
+          "
+        >
+          <p
+            class="text-red-400"
+            *ngIf="createRecipeForm.controls['imgURL'].errors?.['required']"
+          >
+            imgURL is a required field!
+          </p>
+          <p
+            class="text-red-400"
+            *ngIf="createRecipeForm.controls['imgURL'].errors?.['pattern']"
+          >
+            please write a valid pattern
+          </p>
+        </small>
+      </div>
+
+      <div class="field col-12">
+        <div class="p-float-label">
+          <input
+            [style]="{ width: '100%' }"
+            id="publisherURL"
+            type="url"
+            pInputText
+            formControlName="publisherURL"
+          />
+          <label for="float-input">Publisher_Url</label>
+        </div>
+        <small
+          class="mb-1"
+          *ngIf="
+            !createRecipeForm.controls['publisherURL'].valid &&
+            createRecipeForm.controls['publisherURL'].touched
+          "
+        >
+          <p
+            class="text-red-400"
+            *ngIf="createRecipeForm.controls['publisherURL'].errors?.['required']"
+          >
+            publisherURL is a required field!
+          </p>
+          <p
+            class="text-red-400"
+            *ngIf="createRecipeForm.controls['publisherURL'].errors?.['pattern']"
+          >
+            please write a valid pattern
+          </p>
+        </small>
+      </div>
+
+      <div
+        *ngFor="let control of ingredientsAsFormArray.controls; let i = index"
+        formArrayName="ingredients"
+      >
+        <div class="field col-12" [formGroupName]="i">
+          <div class="p-float-label mb-1">
+            <input
+              [style]="{ width: '100%' }"
+              id="ingredient"
+              type="text"
+              pInputText
+              formControlName="ingredient"
+            />
+            <label for="float-input">Ingredients </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <div class="col-12 m-auto">
+          <button
+            class="surface-100 w-12 border-none p-2 text-primary cursor-pointer"
+            type="button"
+            (click)="addIngredient()"
+          >
+            Add new ingredient
+          </button>
+        </div>
+      </div>
+
+      <div class="field col-12">
+        <div class="p-float-label">
+          <input
+            [style]="{ width: '100%' }"
+            id="socialRank"
+            type="number"
+            min="1"
+            max="100"
+            pInputText
+            formControlName="socialRank"
+          />
+          <label for="float-input">Social rank</label>
+        </div>
+
+        <small
+          class="mb-1"
+          *ngIf="
+            !createRecipeForm.controls['socialRank'].valid &&
+            createRecipeForm.controls['socialRank'].touched
+          "
+        >
+          <p
+            class="text-red-400"
+            *ngIf="createRecipeForm.controls['socialRank'].errors?.['required']"
+          >
+            socialRank is a required field!
+          </p>
+          <p
+            class="text-red-400"
+            *ngIf="createRecipeForm.controls['socialRank'].errors?.['pattern']"
+          >
+            max number is 100!
+          </p>
+        </small>
+      </div>
+
+      <div class="mt-2 col-12">
+        <button
+          type="submit"
+          class="mx-auto w-4 text-white bg-primary-500 border-primary-500 p-1 text-sm border-solid border-round cursor-pointer transition-all transition-duration-200 hover:bg-primary-600 hover:border-primary-600 active:bg-primary-700 active:border-primary-700"
+        >
+          {{ pageTitle }}
+        </button>
+      </div>
+    </form>
   </div>
 </section>

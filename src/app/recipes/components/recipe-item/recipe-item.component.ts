@@ -26,7 +26,7 @@ export class RecipeItemComponent implements OnInit {
       this.store.dispatch(addToFav({ recipe }));
       this.isLiked = true;
     } else {
-      this.store.dispatch(removeFromFav(recipe));
+      this.store.dispatch(removeFromFav({ recipe_id: recipe.recipe_id }));
       this.isLiked = false;
     }
   }
