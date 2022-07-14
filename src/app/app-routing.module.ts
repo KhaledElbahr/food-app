@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { AuthGuard } from './auth/services/auth.guard';
-import { NotFoundComponent } from './core/not-found/not-found.component';
 import { TopRankedComponent } from './recipes/components/top-ranked/top-ranked.component';
 
 const routes: Routes = [

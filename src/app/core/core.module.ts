@@ -14,13 +14,11 @@ import { CardModule } from 'primeng/card';
 import { FooterComponent } from './footer/footer.component';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { FormsModule } from '@angular/forms';
-import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     FooterComponent,
-    NotFoundComponent,
   ],
   imports: [
     CommonModule,
