@@ -15,6 +15,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { CheckboxModule } from 'primeng/checkbox';
 import { PasswordModule } from 'primeng/password';
+import {ToastModule} from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   imports: [
@@ -33,6 +35,7 @@ import { PasswordModule } from 'primeng/password';
     TabMenuModule,
     PasswordModule,
     CheckboxModule,
+    ToastModule,
   ],
   exports: [
     CommonModule,
@@ -50,6 +53,8 @@ import { PasswordModule } from 'primeng/password';
     TabMenuModule,
     PasswordModule,
     CheckboxModule,
-  ]
+    ToastModule,
+  ],
+  providers: [MessageService]
 })
 export class SharedModule {}

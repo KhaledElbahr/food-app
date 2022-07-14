@@ -5,8 +5,8 @@
 >
   <p-progressSpinner></p-progressSpinner>
 </div>
-<ng-container *ngIf="!waitingFlag">
-  <div class="my-7 grid">
+<ng-container *ngIf="!waitingFlag" >
+  <div class="my-7 grid" *ngIf="!noContent">
     <figure class="col-12 md:col-6 m-0">
       <img
         style="max-width: 100%"
@@ -45,3 +45,6 @@
     </div>
   </div>
 </ng-container>
+<div style="min-height: 60vh;">
+  <p-toast position="center"></p-toast>
+</div>

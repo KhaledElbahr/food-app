@@ -8,7 +8,7 @@ import { map, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  loggedIn: boolean = false;
+  loggedIn: boolean = localStorage.getItem('isLogged')=== 'true' ? true : false;
   token!: string;
   userName!: string;
 
@@ -49,9 +49,12 @@ export class AuthService {
   login(loginInfo: any) {
     if (loginInfo.username === 'admin') {
       this.userName = 'recipes';
-      this.loggedIn = true;
       this.token = this.generateToken();
       localStorage.setItem('token', this.token);
+      localStorage.setItem('isLogged', 'true');
+      this.loggedIn = localStorage.getItem('isLogged')=== 'true' ? true : false    ;
+
+
       this.setLoginData.logged = this.loggedIn;
       this.setLoginData.message = 'Logged in successfully';
       this.isAuthenticated();
@@ -64,7 +67,10 @@ export class AuthService {
 
   logout() {
     this.loggedIn = false;
+    localStorage.setItem('isLogged', 'false');
+
     localStorage.removeItem('token');
+
     this.router.navigate(['']);
     this.userName = '';
     this.isAuthenticated();

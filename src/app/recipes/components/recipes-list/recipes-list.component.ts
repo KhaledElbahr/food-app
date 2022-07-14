@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { RecipesService } from 'src/app/shared/services/recipes.service';
 import { SearchService } from 'src/app/shared/services/search.service';
 import { Recipe } from '../../../shared/models/Recipe';
+import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-recipes-list',
   templateUrl: './recipes-list.component.html',
@@ -20,7 +21,9 @@ export class RecipesListComponent implements OnInit {
   constructor(
     private recipeService: RecipesService,
     private activatedRoute: ActivatedRoute,
-    private searchService: SearchService
+    private searchService: SearchService,
+    private messageService: MessageService
+
   ) {}
 
   ngOnInit(): void {
@@ -33,7 +36,11 @@ export class RecipesListComponent implements OnInit {
           this.waitingFlag = false;
           console.log(this.recipeList);
         },
-        (err) => console.log(err)
+        (err) => {
+          this.messageService.add({severity:'error', summary: 'Error', detail: err});
+          this.waitingFlag = true;
+
+        }
       );
     });
     this.subscriptions.add(

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from 'primeng/api';
 import { TopRanked } from 'src/app/shared/models/Recipe';
 import { RecipesService } from 'src/app/shared/services/recipes.service';
 import { SearchService } from 'src/app/shared/services/search.service';
@@ -18,8 +19,9 @@ export class TopRankedComponent implements OnInit {
   };
   waitingFlag = true;
 
-  constructor(private searchService: SearchService , private recipeService : RecipesService) { }
-
+  constructor(private searchService: SearchService , private recipeService : RecipesService,
+    private messageService: MessageService
+    ) { }
   getTopRanked (){
     for (const category in this.topRanked){
       this.recipeService.getRecipes(category).subscribe(
@@ -28,7 +30,10 @@ export class TopRankedComponent implements OnInit {
           this.waitingFlag = false;
 
         },
-        (err) => console.log(err)
+        (err) => {
+          this.messageService.add({severity:'error', summary: 'Error', detail: err});
+          this.waitingFlag = false;
+        }
       );
     }
   }

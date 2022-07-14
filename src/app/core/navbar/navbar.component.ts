@@ -97,6 +97,7 @@ export class NavbarComponent implements OnInit, DoCheck {
 
   onLogout() {
     this.authService.logout();
+    location.reload();
   }
 
   onInsertText(event: any) {
