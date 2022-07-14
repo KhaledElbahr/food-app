@@ -18,3 +18,9 @@ export interface RecipeList {
   count: number;
   recipes: Recipe[];
 }
+
+export interface TopRanked {
+  pizza : Recipe[],
+  salad : Recipe[],
+  beef : Recipe[],
+}

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Recipe } from 'src/app/shared/models/Recipe';
 import { changeLike, removeFromFav } from '../../store/recipe.action';
@@ -11,7 +12,12 @@ import { changeLike, removeFromFav } from '../../store/recipe.action';
 export class FavItemComponent implements OnInit {
   isLiked: boolean = true;
   @Input() recipe!: Recipe;
-  constructor(private store: Store) {}
+  constructor(private store: Store ,private router:Router) {}
+
+  openRecipeDetails(recipeId: string) {
+    this.router.navigate(['recipe', recipeId]);
+  }
+
 
   ngOnInit(): void {}
   removeFromFavlist(recipe_id: string) {
