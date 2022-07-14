@@ -11,14 +11,10 @@
   top: -5%;
   right: 101%;
 }
-.details-btn {
-  transition: all 0.3s;
-  cursor: pointer;
-}
-.details-btn:hover {
-  color: white !important;
-  background-color: #616161 !important;
-}
 .owner-link:hover {
   color: #1e4620 !important;
+}
+.details-link:hover{
+  color: #1e4620 !important;
+
 }

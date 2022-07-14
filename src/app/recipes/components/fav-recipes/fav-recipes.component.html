@@ -1,0 +1,13 @@
+<h2 class="text-center mt-7 text-5xl text-blue-900">Favorite Recipes</h2>
+
+<div *ngIf="favlist.length > 0; else empty">
+  <div class="col-12" *ngFor="let recipe of favlist | search: searchText">
+    <app-fav-item [recipe]="recipe"></app-fav-item>
+  </div>
+</div>
+<ng-template #empty>
+  <h2 class="text-center mt-7 text-blue-900">
+    Your Favorite list is empty now !!
+    <a routerLink="" class="block my-4 text-blue-900">Take a Look In Our Top Rated Recipes</a>
+  </h2>
+</ng-template>

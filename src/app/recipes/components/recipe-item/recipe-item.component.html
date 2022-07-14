@@ -15,8 +15,13 @@
         >{{ recipe.publisher }}</a
       >
     </p>
+    <span>
+      <i class="pi pi-star-fill text-yellow-500 mr-1"></i>
+      <span class="font-medium text-black-500">
+        {{ ((recipe.social_rank / 100) * 5).toFixed(2) }}
+      </span>
+    </span>
   </div>
-
   <ng-template pTemplate="footer">
     <button
       pButton
@@ -24,12 +29,26 @@
       label="Details"
       class="mr-6 lg:mr-3 xl:mr-4"
       style="width: 50%"
+      (click)="openRecipeDetails(recipe.recipe_id)"
     ></button>
-    <button
-      pButton
-      type="button"
-      icon="pi pi-heart"
-      class="p-button-text p-button-danger p-4 ml-6 p-button-rounded"
-    ></button>
+    <div *ngIf="isLiked; then liked; else isNotLiked"></div>
+    <ng-template #liked>
+      <button
+        pButton
+        type="button"
+        icon="pi pi-heart-fill"
+        class="p-button-text p-button-danger p-4 ml-6 p-button-rounded"
+        (click)="addToFavlist(recipe)"
+      ></button>
+    </ng-template>
+    <ng-template #isNotLiked>
+      <button
+        pButton
+        type="button"
+        icon="pi pi-heart"
+        class="p-button-text p-button-danger p-4 ml-6 p-button-rounded"
+        (click)="addToFavlist(recipe)"
+      ></button>
+    </ng-template>
   </ng-template>
 </p-card>

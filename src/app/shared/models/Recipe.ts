@@ -7,6 +7,7 @@ export interface Recipe {
   image_url: string;
   social_rank: number;
   publisher_url: string;
+  isLike?: boolean;
 }
 
 export interface SingleRecipe {
@@ -16,4 +17,10 @@ export interface SingleRecipe {
 export interface RecipeList {
   count: number;
   recipes: Recipe[];
+}
+
+export interface TopRanked {
+  pizza : Recipe[],
+  salad : Recipe[],
+  beef : Recipe[],
 }
