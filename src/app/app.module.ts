@@ -18,6 +18,7 @@ import { StoreModule } from '@ngrx/store';
 import { favlistReducer } from './recipes/store/recipe.reducer';
 import { SearchService } from './shared/services/search.service';
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [

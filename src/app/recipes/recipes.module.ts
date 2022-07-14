@@ -1,26 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { RecipesRoutingModule } from './recipes-routing.module';
+import { SharedModule } from './../shared/shared.module';
+import { SearchPipe } from '../shared/pipes/search.pipe';
+// Components
 import { TopRankedComponent } from './components/top-ranked/top-ranked.component';
 import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
-import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
 import { RecipeItemComponent } from './components/recipe-item/recipe-item.component';
-// NGPrime
-import { ButtonModule } from 'primeng/button';
-import { RippleModule } from 'primeng/ripple';
-import { MenubarModule } from 'primeng/menubar';
-import { InputTextModule } from 'primeng/inputtext';
-import { DividerModule } from "primeng/divider";
-import { TagModule } from 'primeng/tag';
-import {CardModule} from 'primeng/card';
-import { CreateRecipeComponent } from './components/create-recipe/create-recipe.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
 import { FavRecipesComponent } from './components/fav-recipes/fav-recipes.component';
-import { SearchPipe } from '../shared/pipes/search.pipe';
 import { FavItemComponent } from './components/fav-item/fav-item.component';
-
+import { CreateRecipeComponent } from './components/create-recipe/create-recipe.component';
 
 @NgModule({
   declarations: [
@@ -36,21 +26,11 @@ import { FavItemComponent } from './components/fav-item/fav-item.component';
   imports: [
     CommonModule,
     RecipesRoutingModule,
-    ButtonModule,
-    RippleModule,
-    MenubarModule,
-    InputTextModule,
-    DividerModule,
-    TagModule,
-    CardModule,
-    FormsModule,
-    ReactiveFormsModule,
-    ProgressSpinnerModule
+    SharedModule,
   ],
   exports: [
     TopRankedComponent,
     RecipesListComponent,
-    ReactiveFormsModule,
     RecipeDetailsComponent,
     RecipeItemComponent,
     CreateRecipeComponent,
