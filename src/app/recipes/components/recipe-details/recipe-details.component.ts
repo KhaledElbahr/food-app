@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from 'src/app/shared/models/Recipe';
 import { RecipesService } from 'src/app/shared/services/recipes.service';
 
@@ -15,11 +15,12 @@ export class RecipeDetailsComponent implements OnInit {
   waitingFlag = true;
   constructor(
     private recipeService: RecipesService,
-    private activatedRoute: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe((params) => {
+    this.route.paramMap.subscribe((params) => {
       this.param = params;
       this.id = this.param.params.id;
       this.recipeService.getRecipe(this.id).subscribe(
@@ -30,5 +31,9 @@ export class RecipeDetailsComponent implements OnInit {
         (err) => console.log(err)
       );
     });
+  }
+
+  updateRecipe(recipeId: string) {
+    this.router.navigate(['editMode', recipeId]);
   }
 }

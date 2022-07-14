@@ -1,26 +1,47 @@
-<p-menubar [style]="{'border': 'none','box-shadow':'2px 2px 4px 3px #ddd'}" [model]="items">
-  <ng-template pTemplate="start" >
-    <h2 [routerLink]="['/top-rank']" class="cursor-pointer  mr-2">Food App</h2>
+<p-menubar
+  [style]="{ border: 'none', 'box-shadow': '2px 2px 4px 3px #ddd' }"
+  [model]="items"
+>
+  <ng-template pTemplate="start">
+    <h2 [routerLink]="['/top-rank']" class="cursor-pointer mr-2">Food App</h2>
   </ng-template>
 
   <ng-template pTemplate="end">
     <button
-    pButton
-    type="button"
-    *ngIf="isLoggedIn"
-    icon="pi pi-heart text-3xl mt-2"
-    class="p-button-text mx-4"
-    [routerLink]="['fav-recipes']"
-  ></button>
+      pButton
+      type="button"
+      *ngIf="isLoggedIn"
+      icon="pi pi-heart text-3xl mt-2"
+      class="p-button-text mx-4"
+      [routerLink]="['recipes/fav-recipes']"
+    ></button>
     <i *ngIf="!isLoggedIn; else logout">
       <p-button label="Register" [routerLink]="['/auth/register']"></p-button>
-      <p-button label="Sign In" icon="pi pi-fw pi-sign-in" iconPos="left" [routerLink]="['/auth/login']"></p-button>
+      <p-button
+        label="Sign In"
+        icon="pi pi-fw pi-sign-in"
+        iconPos="left"
+        [routerLink]="['/auth/login']"
+      ></p-button>
     </i>
     <ng-template #logout>
-      <p-button label="Sign Out" icon="pi pi-fw pi-sign-out" iconPos="left" (click)="onLogout()" [routerLink]="['']">
+      <p-button
+        label="Sign Out"
+        icon="pi pi-fw pi-sign-out"
+        iconPos="left"
+        (click)="onLogout()"
+        [routerLink]="['']"
+      >
       </p-button>
     </ng-template>
-    <input class="form-control" type="text" pInputText placeholder="Search" name="search" (keyup)="onInsertText($event)"
-      [(ngModel)]="searchText" />
+    <input
+      class="form-control"
+      type="text"
+      pInputText
+      placeholder="Search"
+      name="search"
+      (keyup)="onInsertText($event)"
+      [(ngModel)]="searchText"
+    />
   </ng-template>
 </p-menubar>

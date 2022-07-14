@@ -1,4 +1,10 @@
-<form (ngSubmit)="onSubmit(createRecipeForm.value)" class="card md:col-5 mx-auto border-solid border-gray-50 p-8"
+<section class="edit-profile">
+  <div class="content-wrapper">
+    <div class="contact-section-heading">
+      <h2 class="heading-primary">{{ pageTitle }}</h2>
+    </div>
+
+  <form (ngSubmit)="onSubmit(createRecipeForm.value)" class="card md:col-5 mx-auto border-solid border-gray-50 p-8"
   [formGroup]="createRecipeForm">
   <div class="field col-12 ">
     <div class="p-float-label ">
@@ -6,7 +12,7 @@
       <label for="float-input"> Title </label>
     </div>
 
-    <p class="mb-1" *ngIf="!createRecipeForm.controls['title'].valid && 
+    <p class="mb-1" *ngIf="!createRecipeForm.controls['title'].valid &&
         createRecipeForm.controls['title'].touched ">
       <small class="text-red-400" *ngIf="createRecipeForm.controls['title'].errors?.['required']">
         Title is a required field!
@@ -82,7 +88,7 @@
     </small>
   </div>
 
-  <div  *ngFor="let control of  ingredientsAsFormArray.controls ; let i= index"
+  <div *ngFor="let control of  ingredientsAsFormArray.controls ; let i= index"
     formArrayName='ingredients'>
     <div class="field col-12 " [formGroupName]="i">
       <div class="p-float-label mb-1">
@@ -123,12 +129,12 @@
     <button type="submit" class="mx-auto w-4 text-white bg-primary-500
        border-primary-500 p-1 text-sm
          border-solid border-round cursor-pointer
-         transition-all transition-duration-200 hover:bg-primary-600 
+         transition-all transition-duration-200 hover:bg-primary-600
          hover:border-primary-600 active:bg-primary-700 active:border-primary-700">
-      Create Recipe
+      Add Recipe
     </button>
   </div>
+  </form>
 
-</form>
-
-<router-outlet></router-outlet>
+  </div>
+</section>

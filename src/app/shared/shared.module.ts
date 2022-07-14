@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { DropdownDirective } from './services/dropdown.directive';
 // PrimeNg
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
@@ -15,6 +17,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { CheckboxModule } from 'primeng/checkbox';
 import { PasswordModule } from 'primeng/password';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   imports: [
@@ -33,11 +36,13 @@ import { PasswordModule } from 'primeng/password';
     TabMenuModule,
     PasswordModule,
     CheckboxModule,
+    DropdownModule,
   ],
   exports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    DropdownDirective,
     // PrimeNg
     ButtonModule,
     RippleModule,
@@ -50,6 +55,11 @@ import { PasswordModule } from 'primeng/password';
     TabMenuModule,
     PasswordModule,
     CheckboxModule,
+    DropdownModule,
+  ],
+  declarations: [
+    NotFoundComponent,
+    DropdownDirective
   ]
 })
 export class SharedModule {}
